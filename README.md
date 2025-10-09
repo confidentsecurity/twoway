@@ -149,4 +149,4 @@ Run tests with `go test ./...`
 
 ## Other Work
 
-HPKE go code exists in other forms, but usually as lower level primitives. [`flynn/noise`](https://github.com/flynn/noise), [`cloudflare/circl`](https://github.com/cloudflare/circl), Go's stdlib `crypto`. are all examples of that. twoway is built around standard go readers to make sending and receiving messages all at once or in chunks as easy as possible.
+[`cloudflare/circl`](https://github.com/cloudflare/circl), and [tink](https://developers.google.com/tink) both provide HPKE implementations in go but neither support streaming bidirectional messages.
