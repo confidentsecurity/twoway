@@ -41,7 +41,7 @@ func (c *responseCtx) newResponseParams(mediaType []byte) (responseParams, error
 
 	// response_nonce = random(entropy_len)
 	respNonce := make([]byte, entropyLen)
-	_, err := c.nonceReader.Read(respNonce)
+	_, err := io.ReadFull(c.nonceReader, respNonce)
 	if err != nil {
 		return responseParams{}, fmt.Errorf("failed to read nonce: %w", err)
 	}
