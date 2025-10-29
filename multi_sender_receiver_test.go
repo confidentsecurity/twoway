@@ -19,6 +19,7 @@ import (
 	"crypto/rand"
 	"io"
 	"testing"
+	"testing/iotest"
 
 	"github.com/cloudflare/circl/hpke"
 	"github.com/confidentsecurity/twoway"
@@ -75,12 +76,9 @@ func TestMultiSenderReceiver(t *testing.T) {
 				reqOpener, err := receiver.NewRequestOpener(encapKey, reqCT, []byte(reqMediaType))
 				require.NoError(t, err)
 
-				reqPTBuf := &bytes.Buffer{}
-				_, err = io.Copy(reqPTBuf, reqOpener)
+				// verify plaintext can be read from the reader.
+				err = iotest.TestReader(reqOpener, tc.Plaintext)
 				require.NoError(t, err)
-
-				// verify request matches plaintext
-				require.Equal(t, tc.Plaintext, reqPTBuf.Bytes())
 
 				// encrypt the same plaintext as a response.
 				respCTBuf := &bytes.Buffer{}
@@ -103,16 +101,9 @@ func TestMultiSenderReceiver(t *testing.T) {
 				respOpener, err := newRespOpener(respCTBuf, []byte(resMediaType))
 				require.NoError(t, err)
 
-				respPTBuf := &bytes.Buffer{}
-				_, err = io.Copy(respPTBuf, respOpener)
+				// verify plaintext can be read from the reader.
+				err = iotest.TestReader(respOpener, tc.Plaintext)
 				require.NoError(t, err)
-
-				// verify response matches the plaintext
-				output := respPTBuf.Bytes()
-				if output == nil { // fix "empty byte slice, unchunked" test.
-					output = []byte{}
-				}
-				require.Equal(t, tc.Plaintext, output)
 			}
 		})
 
@@ -170,12 +161,9 @@ func TestMultiSenderReceiver(t *testing.T) {
 				)
 				require.NoError(t, err)
 
-				reqPTBuf := &bytes.Buffer{}
-				_, err = io.Copy(reqPTBuf, reqOpener)
+				// verify plaintext can be read from the reader.
+				err = iotest.TestReader(reqOpener, tc.Plaintext)
 				require.NoError(t, err)
-
-				// verify request matches plaintext
-				require.Equal(t, tc.Plaintext, reqPTBuf.Bytes())
 
 				// encrypt the same plaintext as a response.
 				respCTBuf := &bytes.Buffer{}
@@ -210,12 +198,9 @@ func TestMultiSenderReceiver(t *testing.T) {
 				)
 				require.NoError(t, err)
 
-				respPTBuf := &bytes.Buffer{}
-				_, err = io.Copy(respPTBuf, respOpener)
+				// verify plaintext can be read from the reader.
+				err = iotest.TestReader(respOpener, tc.Plaintext)
 				require.NoError(t, err)
-
-				// verify response matches the plaintext
-				require.Equal(t, tc.Plaintext, respPTBuf.Bytes())
 			}
 		})
 	}
