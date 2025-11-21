@@ -6,7 +6,7 @@ require (
 	github.com/cloudflare/circl v1.6.1
 	github.com/quic-go/quic-go v0.56.0
 	github.com/stretchr/testify v1.11.1
-	golang.org/x/crypto v0.44.0
+	golang.org/x/crypto v0.45.0
 )
 
 require (
