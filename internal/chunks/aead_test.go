@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/confidentsecurity/twoway/internal/test"
+	"github.com/openpcc/twoway/internal/test"
 	"github.com/stretchr/testify/require"
 )
 

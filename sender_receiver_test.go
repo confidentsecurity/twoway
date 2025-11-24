@@ -22,8 +22,8 @@ import (
 	"testing/iotest"
 
 	"github.com/cloudflare/circl/hpke"
-	"github.com/confidentsecurity/twoway"
-	"github.com/confidentsecurity/twoway/internal/test"
+	"github.com/openpcc/twoway"
+	"github.com/openpcc/twoway/internal/test"
 	"github.com/stretchr/testify/require"
 )
 

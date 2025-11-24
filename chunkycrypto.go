@@ -21,7 +21,7 @@ import (
 	"io"
 
 	"github.com/cloudflare/circl/hpke"
-	"github.com/confidentsecurity/twoway/internal/chunks"
+	"github.com/openpcc/twoway/internal/chunks"
 )
 
 type sealerReader struct {

@@ -22,7 +22,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/confidentsecurity/twoway/internal/chunks"
+	"github.com/openpcc/twoway/internal/chunks"
 	"github.com/quic-go/quic-go/quicvarint"
 	"github.com/stretchr/testify/require"
 )

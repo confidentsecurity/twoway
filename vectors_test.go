@@ -23,8 +23,8 @@ import (
 
 	"github.com/cloudflare/circl/hpke"
 	"github.com/cloudflare/circl/kem"
-	"github.com/confidentsecurity/twoway"
-	"github.com/confidentsecurity/twoway/internal/test/unsafehpke"
+	"github.com/openpcc/twoway"
+	"github.com/openpcc/twoway/internal/test/unsafehpke"
 	"github.com/stretchr/testify/require"
 )
 

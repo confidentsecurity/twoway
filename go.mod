@@ -1,4 +1,4 @@
-module github.com/confidentsecurity/twoway
+module github.com/openpcc/twoway
 
 go 1.25.4
 

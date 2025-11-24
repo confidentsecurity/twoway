@@ -2,7 +2,7 @@
 
 `twoway` is a Go package that provides encrypted request-response messaging using HPKE.
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/confidentsecurity/twoway.svg)](https://pkg.go.dev/github.com/confidentsecurity/twoway)
+[![Go Reference](https://pkg.go.dev/badge/github.com/openpcc/twoway.svg)](https://pkg.go.dev/github.com/openpcc/twoway)
 
 ## Overview
 
